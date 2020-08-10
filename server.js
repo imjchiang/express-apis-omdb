@@ -4,6 +4,7 @@ const ejsLayouts = require("express-ejs-layouts");
 const { default: Axios } = require("axios");
 const app = express();
 const { Sequelize } = require("sequelize");
+const db = require("./models");
 
 //using .env to hide API KEY
 let API_KEY = process.env.API_KEY;

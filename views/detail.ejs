@@ -8,6 +8,13 @@
 <h3>Director: <%= movie.Director %> &emsp; Writer: <%= movie.Writer %></h3>
 <h3>Actors: <%= movie.Actors %></h3>
 <h5>Productions: <%= movie.Production %> &emsp; Released: <%= movie.Released %></h5>
+
+<form method="POST" action="/faves">
+    <input type="hidden" name="title" value="<%= movie.Title %>">
+    <input type="hidden" name="imdbid" value="<%= movie.imdbID %>">
+    <button type="submit">Add to Faves</button>
+</form>
+
 <% 
 //"Language":"English",
 //"Country":"USA",
