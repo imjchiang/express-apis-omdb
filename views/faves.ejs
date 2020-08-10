@@ -1,0 +1,16 @@
+<% if (data)
+{ %>
+    <% data.forEach(function(movie)
+    { %>
+        <ul>
+            <li>
+                <%= movie.Title %> (<%= movie.Year %>)
+                <a href="/movies/<%= movie.imdbID %>">More Info</a>
+            </li>
+        </ul>
+    <% }) %> 
+<% }
+else
+{ %> 
+    <h2>No Favorites Available!</h2>
+<% } %>

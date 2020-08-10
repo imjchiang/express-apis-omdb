@@ -79,6 +79,19 @@ app.get("/movies/:movie_id", function(req, res)
   });
 });
 
+app.post("/faves", function(req, res)
+{
+  db.fave.findOrCreate(
+  {
+    where: 
+    {
+      name: req.body.title,
+      imdbid: req.body.imdbid
+    }
+  });
+  res.redirect("faves");
+});
+
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
