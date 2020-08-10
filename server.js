@@ -79,17 +79,33 @@ app.get("/movies/:movie_id", function(req, res)
   });
 });
 
+app.get("/faves", function(req, res)
+{
+  db.fave.findAll()
+  .then(function(fave)
+  {
+    res.render("faves", {faves: fave});
+  })
+  .catch(function(err)
+  {
+    console.log(err);
+  })
+});
+
 app.post("/faves", function(req, res)
 {
   db.fave.findOrCreate(
   {
     where: 
     {
-      name: req.body.title,
+      title: req.body.title,
       imdbid: req.body.imdbid
     }
-  });
-  res.redirect("faves");
+  })
+  .then(function()
+  {
+    res.redirect("faves");
+  })
 });
 
 // The app.listen function returns a server handle

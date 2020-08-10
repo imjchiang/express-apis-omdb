@@ -1,11 +1,11 @@
-<% if (data)
+<% if (faves)
 { %>
-    <% data.forEach(function(movie)
+    <% faves.forEach(function(movie)
     { %>
         <ul>
             <li>
-                <%= movie.Title %> (<%= movie.Year %>)
-                <a href="/movies/<%= movie.imdbID %>">More Info</a>
+                <%= movie.title %>
+                <a href="/movies/<%= movie.imdbid %>">More Info</a>
             </li>
         </ul>
     <% }) %> 
